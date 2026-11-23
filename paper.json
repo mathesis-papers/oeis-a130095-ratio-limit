@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24411285",
     "current_version": 2,
-    "doi": null,
+    "doi": "10.5281/zenodo.24411286",
     "lean_source": {
       "revision": "d51b6958b717911d2705676a6e9bf473b3b6f324",
       "url": "https://github.com/the-omega-institute/trureturing/blob/d51b6958b717911d2705676a6e9bf473b3b6f324/D5/S3/Arith/Divisors/OeisA130095RatioLimit.lean"

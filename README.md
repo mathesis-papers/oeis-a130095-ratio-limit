@@ -5,13 +5,15 @@
 Extending Wolfdieter Lang's odd-Fibonacci ratio formula (OEIS A001519, COMMENTS, March 30, 2020), we prove Gary W. Adamson's conjecture, 'a(n)/a(n-1) tends to phi^2' (OEIS A130095, COMMENTS, original revision #1, May 11, 2007; retained in revision #11, December 11, 2019), where a(n)=sum_{d|n} F_(2d-1) and phi=(1+sqrt(5))/2. We obtain the sharper limits phi^(2m)*(a(2m)/a(2m-1)-phi^2) -> phi^2 and phi^(2m+1)*(a(2m+1)/a(2m)-phi^2) -> -phi^3. The proof separates the largest proper divisor from an exponentially smaller remainder. We also prove Bala's generating functions and prime congruences, and give an explicit proof of Kotešovec's previously recorded Fibonacci-transform asymptotic.
 
 - PDF: [frozen public file](paper.pdf)
+- DOI: [https://doi.org/10.5281/zenodo.24411286](https://doi.org/10.5281/zenodo.24411286)
+- Concept DOI: [https://doi.org/10.5281/zenodo.24411285](https://doi.org/10.5281/zenodo.24411285)
 - License: CC-BY-4.0
 - Version: 2
 - Mathesis record: [oeis-a130095-ratio-limit](https://mathesis-omega-research.apps.chrono-ai.fun/papers/oeis-a130095-ratio-limit?version=2)
 
 ## How to cite
 
-Haobo Ma, Wenlin Zhang (2026). Adamson's Fibonacci divisor-transform conjecture: sharp ratio errors extending Lang's formula. Mathesis, version 2. https://mathesis-omega-research.apps.chrono-ai.fun/papers/oeis-a130095-ratio-limit?version=2
+Haobo Ma, Wenlin Zhang (2026). Adamson's Fibonacci divisor-transform conjecture: sharp ratio errors extending Lang's formula. Mathesis, version 2. https://doi.org/10.5281/zenodo.24411286
 
 ## Statement progress
 
