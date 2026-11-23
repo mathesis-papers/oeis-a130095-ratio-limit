@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 83732,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "af94c0eb38773e91bd0e0596afaeb4cc4b7b0e399ef4352eec89a4e605a3dbe9",
+      "sha256": "af94c0eb38773e91bd0e0596afaeb4cc4b7b0e399ef4352eec89a4e605a3dbe9"
+    },
+    "source": {
+      "bytes": 13363,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "0d53ceeab19956e3bc00e65626689c90cd14ad9960f881584f770aa7fe63da2f",
+      "sha256": "0d53ceeab19956e3bc00e65626689c90cd14ad9960f881584f770aa7fe63da2f"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Extending Wolfdieter Lang's odd-Fibonacci ratio formula (OEIS A001519, COMMENTS, March 30, 2020), we prove Gary W. Adamson's conjecture, 'a(n)/a(n-1) tends to phi^2' (OEIS A130095, COMMENTS, original revision #1, May 11, 2007; retained in revision #11, December 11, 2019), where a(n)=sum_{d|n} F_(2d-1) and phi=(1+sqrt(5))/2. We obtain the sharper limits phi^(2m)*(a(2m)/a(2m-1)-phi^2) -> phi^2 and phi^(2m+1)*(a(2m+1)/a(2m)-phi^2) -> -phi^3. The proof separates the largest proper divisor from an exponentially smaller remainder. We also prove Bala's generating functions and prime congruences, and give an explicit proof of Kotešovec's previously recorded Fibonacci-transform asymptotic.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "d51b6958b717911d2705676a6e9bf473b3b6f324",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/d51b6958b717911d2705676a6e9bf473b3b6f324/D5/S3/Arith/Divisors/OeisA130095RatioLimit.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 83732,
+      "sha256": "af94c0eb38773e91bd0e0596afaeb4cc4b7b0e399ef4352eec89a4e605a3dbe9",
+      "url": "/api/v1/collected-papers/oeis-a130095-ratio-limit/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-23T06:40:38.297679672Z",
+    "record": "oeis-a130095-ratio-limit",
+    "repository_name": "oeis-a130095-ratio-limit",
+    "source": {
+      "bytes": 13363,
+      "sha256": "0d53ceeab19956e3bc00e65626689c90cd14ad9960f881584f770aa7fe63da2f",
+      "url": "/api/v1/collected-papers/oeis-a130095-ratio-limit/files/source?version=2"
+    },
+    "title": "Adamson's Fibonacci divisor-transform conjecture: sharp ratio errors extending Lang's formula",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-23T06:40:38.297679672Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "oeis-a130095-ratio-limit"
+  }
+}

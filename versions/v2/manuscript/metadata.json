@@ -1,0 +1,21 @@
+{
+  "id": "oeis-a130095-ratio-limit",
+  "revision": 2,
+  "problem_ids": ["oeis-a130095-ratio-limit"],
+  "topic": "Adamson's successive-term ratio conjecture for the inverse Möbius transform of odd-indexed Fibonacci numbers, with sharp parity-dependent errors",
+  "title": "Adamson's Fibonacci divisor-transform conjecture: sharp ratio errors extending Lang's formula",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "Extending Wolfdieter Lang's odd-Fibonacci ratio formula (OEIS A001519, COMMENTS, March 30, 2020), we prove Gary W. Adamson's conjecture, 'a(n)/a(n-1) tends to phi^2' (OEIS A130095, COMMENTS, original revision #1, May 11, 2007; retained in revision #11, December 11, 2019), where a(n)=sum_{d|n} F_(2d-1) and phi=(1+sqrt(5))/2. We obtain the sharper limits phi^(2m)*(a(2m)/a(2m-1)-phi^2) -> phi^2 and phi^(2m+1)*(a(2m+1)/a(2m)-phi^2) -> -phi^3. The proof separates the largest proper divisor from an exponentially smaller remainder. We also prove Bala's generating functions and prime congruences, and give an explicit proof of Kotešovec's previously recorded Fibonacci-transform asymptotic.",
+  "summary": "A full all-index proof of Adamson's ratio conjecture, sharp even/odd scaled ratio-error limits, a general exponential divisor-transform bound, proofs of the related generating functions and prime congruences, and corrections M^2=3M-I and 1/(2*phi-1) to Lang's displayed matrix identity and Binet prefactor.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/d51b6958b717911d2705676a6e9bf473b3b6f324/D5/S3/Arith/Divisors/OeisA130095RatioLimit.lean",
+  "coverage": {
+    "lean_declaration": "D5.S3.Arith.Divisors.OeisA130095RatioLimit.result",
+    "lean_statement": "The full eventual epsilon-N limit a(n)/a(n-1) -> ((1+sqrt(5))/2)^2, N>=2.",
+    "written_proofs": ["sharp parity limits", "general exponential divisor-transform estimate", "arithmetic-progression Fibonacci transforms", "Bala generating functions", "Bala and Somos prime congruences", "ordinary-transform generating functions", "Möbius inversion", "Lang matrix correction"],
+    "finite_checks": "Exact integers at indices 1..1000, exact generating-function coefficients through degree 120, both prime congruences for primes <=10000, and eight 500-digit numerical illustrations."
+  }
+}

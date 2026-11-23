@@ -1,0 +1,424 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\ph}{\varphi}
+\title{Adamson's Fibonacci divisor-transform conjecture:\\
+sharp ratio errors extending Lang's formula}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{November 14, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending Wolfdieter Lang's odd-Fibonacci ratio formula (OEIS A001519,
+COMMENTS, March 30, 2020), we prove Gary W. Adamson's conjecture,
+``$a(n)/a(n-1)$ tends to $\ph^2$'' (OEIS A130095, COMMENTS,
+original revision \#1, May 11, 2007; retained in revision \#11,
+December 11, 2019), where $a(n)=\sum_{d\mid n}F_{2d-1}$ and
+$\ph=(1+\sqrt5)/2$.
+We obtain the sharper limits
+$\ph^{2m}(a(2m)/a(2m-1)-\ph^2)\to\ph^2$ and
+$\ph^{2m+1}(a(2m+1)/a(2m)-\ph^2)\to-\ph^3$.
+The proof separates the largest proper divisor from an exponentially
+smaller remainder. We also prove Bala's generating functions and prime
+congruences, and give an explicit proof of Kote\v{s}ovec's previously
+recorded Fibonacci-transform asymptotic.
+\end{abstract}
+
+\section{The sequence and its ratio}
+Let $F_0=0$, $F_1=1$, and $F_{j+2}=F_{j+1}+F_j$ for $j\geq0$, and put
+$\ph=(1+\sqrt5)/2$. For $n\geq1$ define
+\begin{equation}\label{eq:a}
+ a(n)=\sum_{d\mid n} F_{2d-1},
+\end{equation}
+where divisors are positive. This is Bala's formula for A130095
+\cite{adamson}; it begins $1,3,6,16,35,97$. Adamson's comment states
+``Conjecture: a(n)/a(n-1) tends to phi\^{}2.'' The comment already occurs in
+the entry's original revision \#1, dated May 11, 2007, whose author
+field credits Adamson, May 6, 2007. The later divisor-sum and
+generating-function formulas are signed by Bala, March 26, 2015.
+
+The divisor transform in \eqref{eq:a} adds many smaller-index terms,
+but no proper divisor of $n$ exceeds $n/2$. The following estimate
+makes their total size explicit.
+
+\begin{theorem}\label{thm:main}
+For every $n\geq1$,
+\begin{equation}\label{eq:error}
+ 0\leq a(n)-F_{2n-1}\leq F_{2\lfloor n/2\rfloor}\leq F_n,
+ \qquad
+ 0\leq \frac{a(n)}{F_{2n-1}}-1\leq\frac1{F_n}.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:limit}
+ a(n)\sim\frac{\ph^{2n-1}}{\sqrt5},\qquad
+ \lim_{n\to\infty}\frac{a(n)}{a(n-1)}=\ph^2.
+\end{equation}
+The ratio is defined for every $n\geq2$. Equivalently, for every
+$\epsilon>0$ there is an integer $N\geq2$ such that
+$|a(n)/a(n-1)-\ph^2|<\epsilon$ for every integer $n\geq N$.
+\end{theorem}
+
+\begin{proof}
+Write $a(n)=F_{2n-1}+R(n)$, with $R(n)$ the sum over proper positive
+divisors. Put $m=\lfloor n/2\rfloor$. Since the summands are
+nonnegative, telescoping gives
+\[
+ 0\leq R(n)\leq\sum_{d=1}^{m}F_{2d-1}
+ =\sum_{d=1}^{m}(F_{2d}-F_{2d-2})=F_{2m}\leq F_n.
+\]
+For $n=1$ this sum is empty and equals $F_0=0$.
+The Fibonacci addition identity
+$F_{r+s}=F_{r-1}F_s+F_rF_{s+1}$ for $r\geq1$, $s\geq0$
+follows by induction on $s$ from the recurrence. Taking $r=n$,
+$s=n-1$ gives
+\[
+ F_{2n-1}=F_n^2+F_{n-1}^2\geq F_n^2.
+\]
+As $F_n>0$ for $n\geq1$, division proves \eqref{eq:error}.
+
+For completeness, put $\psi=(1-\sqrt5)/2=-\ph^{-1}$. The expression
+$(\ph^j-\psi^j)/\sqrt5$ satisfies the Fibonacci recurrence and its
+initial values, so
+\begin{equation}\label{eq:binet}
+ F_j=\frac{\ph^j-\psi^j}{\sqrt5}.
+\end{equation}
+In particular $F_n\to\infty$ and
+$F_{2n-1}\sim\ph^{2n-1}/\sqrt5$. Let
+$e_n=R(n)/F_{2n-1}$. Then $e_n\to0$ by \eqref{eq:error}, and for
+$n\geq2$,
+\[
+ \frac{a(n)}{a(n-1)}
+ =\frac{F_{2n-1}}{F_{2n-3}}\frac{1+e_n}{1+e_{n-1}}.
+\]
+All denominators are positive. Formula \eqref{eq:binet} shows that the
+first factor tends to $\ph^2$, and the second tends to $1$. This proves
+both conclusions in \eqref{eq:limit} and the stated quantified form.
+\end{proof}
+
+In fact \eqref{eq:binet} and \eqref{eq:error} give
+$a(n)/F_{2n-1}=1+O(\ph^{-n})$ and
+$a(n)/a(n-1)=\ph^2+O(\ph^{-n})$.
+For the second estimate, the odd-Fibonacci ratio differs from
+$\ph^2$ by $O(\ph^{-4n})$, and
+\[
+ \left|\frac{1+e_n}{1+e_{n-1}}-1\right|
+ \leq e_n+e_{n-1}=O(\ph^{-n}).
+\]
+Separating the divisor $n/2$ gives exact limiting constants for both
+errors. Write $\eta_n=1$ for even $n$ and $\eta_n=0$ for odd $n$.
+
+\begin{corollary}\label{cor:sharp}
+For $n\geq2$,
+\[
+0\leq R(n)-\eta_n F_{n-1}\leq F_{2\lfloor n/3\rfloor}.
+\]
+Consequently
+\[
+\frac{a(n)}{F_{2n-1}}-1
+=\eta_n\ph^{-n}+O(\ph^{-4n/3}),
+\]
+and
+\begin{align*}
+\lim_{m\to\infty}\ph^{2m}
+ \left(\frac{a(2m)}{a(2m-1)}-\ph^2\right)&=\ph^2,\\
+\lim_{m\to\infty}\ph^{2m+1}
+ \left(\frac{a(2m+1)}{a(2m)}-\ph^2\right)&=-\ph^3.
+\end{align*}
+Both $O(\ph^{-n})$ error orders are therefore sharp. The successive
+ratios eventually lie above $\ph^2$ at even indices and below it at
+odd indices.
+\end{corollary}
+\begin{proof}
+Every proper divisor other than $n/2$ has complementary divisor at
+least three, hence is at most $n/3$. Bound their sum by the sum of all
+odd Fibonacci terms through that index, as in Theorem~\ref{thm:main}.
+Binet's formula gives
+$F_{n-1}/F_{2n-1}=\ph^{-n}(1+O(\ph^{-2n}))$ and
+$F_{2\lfloor n/3\rfloor}/F_{2n-1}=O(\ph^{-4n/3})$.
+Thus, writing $e_n=R(n)/F_{2n-1}$,
+\[
+\frac{1+e_n}{1+e_{n-1}}
+=1+e_n-e_{n-1}+O(\ph^{-2n})
+=1+\eta_n\ph^{-n}-\eta_{n-1}\ph^{-(n-1)}
+ +O(\ph^{-4n/3}).
+\]
+Multiply by $F_{2n-1}/F_{2n-3}=\ph^2+O(\ph^{-4n})$ and
+then by $\ph^n$. The two parities give the displayed limits.
+The even normalized-term limit is $1$, by the preceding expansion.
+\end{proof}
+
+\section{A general estimate and related formulas}
+\begin{proposition}\label{prop:general}
+Suppose $b_n\geq0$ for $n\geq1$ and $b_n\sim C\lambda^n$, where
+$C>0$ and $\lambda>1$. For $A(n)=\sum_{d\mid n}b_d$,
+\[
+ A(n)=b_n\bigl(1+O(\lambda^{-n/2})\bigr),\qquad
+ A(n)\sim C\lambda^n,\qquad
+ \frac{A(n)}{A(n-1)}\longrightarrow\lambda.
+\]
+The quotient is defined for all sufficiently large $n$.
+\end{proposition}
+\begin{proof}
+Choose $K>0$ so that $b_d\leq K\lambda^d$ for every $d\geq1$;
+the finitely many initial values can be absorbed in $K$.
+For all sufficiently large $n$, $b_n\geq (C/2)\lambda^n>0$, while
+\[
+ 0\leq A(n)-b_n\leq K\sum_{d=1}^{\lfloor n/2\rfloor}\lambda^d
+ \leq\frac{K\lambda^{\lfloor n/2\rfloor+1}}{\lambda-1}.
+\]
+Dividing proves the relative bound. The asymptotic follows, and
+$b_n/b_{n-1}\to\lambda$ follows directly from $b_n\sim C\lambda^n$.
+The quotient of the two relative correction factors tends to $1$.
+\end{proof}
+
+\begin{corollary}\label{cor:standard}
+For $c(n)=\sum_{d\mid n}F_d$, the sequence A007435,
+\[
+ c(n)\sim \frac{\ph^n}{\sqrt5},\qquad
+ \frac{c(n)}{c(n-1)}\longrightarrow\ph.
+\]
+More generally, for fixed integers $k\geq1$ and $s$ with $k+s\geq1$,
+the sequence $\sum_{d\mid n}F_{kd+s}$ is asymptotic to
+$\ph^{kn+s}/\sqrt5$ and has successive-term ratio tending to $\ph^k$.
+\end{corollary}
+\begin{proof}
+Apply Proposition~\ref{prop:general} and \eqref{eq:binet} with
+$(C,\lambda)=(1/\sqrt5,\ph)$ and
+$(\ph^s/\sqrt5,\ph^k)$, respectively. The index restriction makes
+every summand defined and positive.
+\end{proof}
+The first asymptotic in Corollary~\ref{cor:standard} is recorded by
+V\'aclav Kote\v{s}ovec in A007435, FORMULA, May 21, 2018
+\cite{sloane}. Here it is a cited formula with an explicit proof,
+not a new asymptotic claim.
+
+The base-sequence ratio is also recorded with a proof calculation by
+Wolfdieter Lang, March 30, 2020, in A001519, COMMENTS \cite{odd}.
+Its matrix calculation has a sign misprint, which can be corrected
+without changing the stated sequence or limit.
+\begin{corollary}\label{cor:matrix}
+Let $M=\left(\begin{smallmatrix}1&1\\1&2\end{smallmatrix}\right)$
+and let $I$ be the $2\times2$ identity matrix. Then
+$M^2=3M-I$, and, for $n\geq1$,
+\[
+(M^n)_{11}=F_{2n-1}
+=\frac{\ph^{2n-1}+\ph^{1-2n}}{\sqrt5}.
+\]
+Consequently $(M^n)_{11}/(M^{n-1})_{11}\to\ph^2$.
+\end{corollary}
+\begin{proof}
+Direct multiplication gives
+$M^2=\left(\begin{smallmatrix}2&3\\3&5\end{smallmatrix}\right)=3M-I$,
+rather than the source's displayed $3M+I$.
+Thus $u_n=(M^n)_{11}$ satisfies $u_{n+2}=3u_{n+1}-u_n$,
+with $u_1=1$, $u_2=2$, just as $F_{2n-1}$ does.
+The displayed formula and limit follow from \eqref{eq:binet}.
+In the same source comment, the prefactor written as $1/(2r+1)$,
+where $r=\ph$, is $1/(2r-1)=1/\sqrt5$.
+\end{proof}
+
+\begin{corollary}[Bala's generating functions]\label{cor:gf}
+With $B(x)=\sum_{n\geq1}F_{2n-1}x^n$, one has
+$B(x)=x(1-x)/(1-3x+x^2)$ and both identities below.
+\end{corollary}
+\begin{proof}
+The odd subsequence
+(A001519 with positive indices \cite{odd}) obeys
+$F_{2n+3}=3F_{2n+1}-F_{2n-1}$, by the Fibonacci recurrence. Its
+first two terms give
+\[
+ B(x)=\frac{x(1-x)}{1-3x+x^2}.
+\]
+Rearranging coefficientwise finite sums proves Bala's Lambert-series
+identity \cite{adamson}:
+\begin{equation}\label{eq:gf}
+ \sum_{n\geq1}a(n)x^n
+ =\sum_{j\geq1}\frac{F_{2j-1}x^j}{1-x^j}
+ =\sum_{j\geq1}\frac{x^j(1-x^j)}{1-3x^j+x^{2j}}.
+\end{equation}
+Indeed both expansions have coefficient
+$\sum_{j\mid n}F_{2j-1}$ at $x^n$. Replacing $x$ by $x^2$ gives
+Bala's second formula:
+\[
+ \sum_{n\geq1}a(n)x^{2n}
+ =\sum_{j\geq1}
+ \frac{x^j}{1/(x^j-x^{-j})-(x^j-x^{-j})}.
+\]
+Each summand on the right, after simplification, is
+$x^{2j}(1-x^{2j})/(1-3x^{2j}+x^{4j})$.
+These are identities of formal power series; they also hold as
+absolutely convergent analytic series for $|x|<\ph^{-2}$ in
+\eqref{eq:gf}, and $|x|<\ph^{-1}$ in the last display. To justify
+convergence in \eqref{eq:gf}, use $F_{2j-1}=O(\ph^{2j})$ and
+$1-|x|^j\geq1-|x|$; the other representations have the same
+absolutely summable double series. Values at $x=0$ in the Laurent
+form are understood through the simplified power series.
+\end{proof}
+
+\begin{corollary}[Related transform identities]\label{cor:related}
+For $c(n)=\sum_{d\mid n}F_d$, Jovovic's ordinary generating function
+and Gutkovskiy's logarithmic identity in A007435 are
+\[
+ \sum_{n\geq1}c(n)x^n
+ =\sum_{j\geq1}\frac{x^j}{1-x^j-x^{2j}},\qquad
+ \sum_{n\geq1}\frac{c(n)x^n}{n}
+ =-\sum_{j\geq1}\frac{F_j}{j}\log(1-x^j).
+\]
+For $b_n=F_n$ or $b_n=F_{2n-1}$, and $A(n)=\sum_{d\mid n}b_d$,
+the inverse formula is
+\[
+ b_n=\sum_{d\mid n}\mu(d)A(n/d).
+\]
+Here $\mu(d)=0$ if $d$ has a squared prime factor, and otherwise is
+$(-1)^r$ if $d$ is a product of $r$ distinct primes.
+\end{corollary}
+\begin{proof}
+The Fibonacci recurrence gives $\sum_{j\geq1}F_jx^j=x/(1-x-x^2)$.
+Summing this series at $x,x^2,\ldots$ proves the first identity.
+For the second, expand $-\log(1-y)=\sum_{m\geq1}y^m/m$;
+the coefficient of $x^n$ on the right is
+$\sum_{j\mid n}(F_j/j)/(n/j)=c(n)/n$.
+Both are formal identities and converge absolutely for $|x|<\ph^{-1}$.
+Finally, changing the order of the finite divisor sums gives the
+coefficient of $b_e$ in the inverse formula as
+$\sum_{d\mid n/e}\mu(d)$, equal to $1$ if $e=n$ and $0$ otherwise:
+for an integer with $r>0$ distinct prime factors the sum is $(1-1)^r$.
+This also proves the inverse of the divisibility matrix A051731.
+\end{proof}
+
+\begin{corollary}[Bala's and Somos's prime congruences]\label{cor:prime}
+For a prime $p$, Bala's A130095 formula is
+\[
+a(p)\equiv
+\begin{cases}
+3& p\equiv2,3\pmod5,\\
+2& p\equiv1,4\pmod5,\\
+0& p=5
+\end{cases}\pmod p.
+\]
+For $c(p)$, Somos's A007435 formula has respectively the residues
+$0,2,1$ in these three cases.
+\end{corollary}
+\begin{proof}
+First let $p$ be odd and different from $5$. In the algebra
+$\mathbb F_p[t]/(t^2-5)$, write $s$ for the class of $t$ and set
+$\alpha=(1+s)/2$, $\beta=(1-s)/2$. The elements $2$ and $s$
+are invertible. The recurrence proves
+$F_j=(\alpha^j-\beta^j)/s$ in this algebra.
+Let $\chi=(5/p)\in\{1,-1\}$ be the Legendre symbol.
+Euler's criterion and quadratic reciprocity give
+$s^p=\chi s$ and $\chi=(p/5)$; see \cite[Theorem~4.1.7,
+Corollary~4.2.3]{stein}.
+The binomial theorem in characteristic $p$ now gives
+$\alpha^p=(1+\chi s)/2$, $\beta^p=(1-\chi s)/2$.
+It follows that
+\[
+ F_p\equiv\chi,\qquad
+ F_{p+1}\equiv(1+\chi)/2,\qquad
+ F_{p-1}\equiv(1-\chi)/2\pmod p.
+\]
+Using the addition identity from Theorem~\ref{thm:main},
+\[
+ a(p)=1+F_{2p-1}
+ \equiv1+\chi^2+((1-\chi)/2)^2=(5-\chi)/2,
+ \qquad c(p)\equiv1+\chi\pmod p.
+\]
+The squares modulo $5$ are $1$ and $4$, giving the asserted cases.
+For $p=2$, $a(2)=3$ and $c(2)=2$; for $p=5$,
+$a(5)=35$ and $c(5)=6$. These verify the exceptional primes directly.
+\end{proof}
+
+\section{Coverage and verification}
+The source statements used here have the following scope. The
+generating-function and standard-transform rows credit the formulas
+already recorded in OEIS.
+\begin{center}\small
+\begin{tabular}{@{}p{0.44\linewidth}p{0.50\linewidth}@{}}
+\toprule
+Source item & Coverage \\
+\midrule
+A130095, COMMENTS: ratio conjecture &
+Proved for every eventual integer index; Theorem~\ref{thm:main}. \\
+A130095 ratio error (not posed in the source) &
+Not posed; sharp parity limits proved in Corollary~\ref{cor:sharp}. \\
+A130095, FORMULA: Bala's divisor sum &
+Definition \eqref{eq:a}; the same positive-index convention. \\
+A130095, FORMULA: Bala's two generating functions &
+Reproved; prior formulas Bala, 2015; Corollary~\ref{cor:gf}. \\
+A130095, FORMULA: Bala's prime congruences &
+Proved; formula credited to Bala, 2015; Corollary~\ref{cor:prime}. \\
+A007435, FORMULA: Kote\v{s}ovec's asymptotic &
+Proved; prior formula Kote\v{s}ovec, May 21, 2018;
+Corollary~\ref{cor:standard}. \\
+A007435: generating functions and prime congruences &
+Proved; prior formulas Jovovic, 2002; Somos, 2012;
+Gutkovskiy, 2018; Corollaries~\ref{cor:related}, \ref{cor:prime}. \\
+A001519: Lang's odd-Fibonacci ratio &
+Reproved; prior proof Lang, 2020; Corollary~\ref{cor:matrix}. \\
+A001519: Lang's displayed $M^2=3M+I$ and prefactor $1/(2r+1)$ &
+Refuted-and-corrected: $M^2=3M-I$ and $1/(2r-1)$;
+Corollary~\ref{cor:matrix}. \\
+A051731: divisibility matrix \cite{divisibility} &
+Action is \eqref{eq:a}; inverse proved in Corollary~\ref{cor:related}. \\
+A001519 operator iterations, other combinatorial interpretations;
+A007435 other sequence decompositions &
+Not covered; distinct from the divisor estimates and identities here. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The pinned Lean file
+\href{https://github.com/the-omega-institute/trureturing/blob/d51b6958b717911d2705676a6e9bf473b3b6f324/D5/S3/Arith/Divisors/OeisA130095RatioLimit.lean}{\texttt{OeisA130095RatioLimit.lean}}
+contains the definition \texttt{a} in the namespace
+\texttt{D5.S3.Arith.Divisors.OeisA130095RatioLimit} and its theorem
+\texttt{result}. That theorem states exactly the $\epsilon,N$
+conclusion of Theorem~\ref{thm:main}, with real division and $N\geq2$.
+The file's private lemmas \texttt{remainder\_le},
+\texttt{fib\_square\_le}, and \texttt{full\_ratio\_limit} give the
+remainder bound, square bound, and full ratio limit used in its proof.
+The general transform result, sharp parity limits, matrix correction,
+generating functions, inversion, and prime congruences have written
+proofs; they are not assertions of the declaration \texttt{result}.
+The accompanying \texttt{verify.py} checks finite integer identities,
+the displayed inequalities, and the 30 published sequence values;
+\texttt{checks.json} specifies its finite ranges. Those finite checks
+are supplementary to the all-index proof.
+
+\begin{thebibliography}{9}
+\bibitem{adamson} G. W. Adamson,
+\emph{A130095: Inverse M\"obius transform of odd-indexed Fibonacci numbers},
+The On-Line Encyclopedia of Integer Sequences, revision \#11,
+December 11, 2019.
+\url{https://oeis.org/A130095}.
+Original comment: \url{https://oeis.org/history?seq=A130095&start=10}.
+Formulas by P. Bala, March 26, 2015.
+\bibitem{sloane} N. J. A. Sloane,
+\emph{A007435: Inverse Moebius transform of Fibonacci numbers},
+The On-Line Encyclopedia of Integer Sequences, revision \#49,
+April 18, 2025.
+Asymptotic formula by V. Kote\v{s}ovec, May 21, 2018.
+\url{https://oeis.org/A007435}.
+\bibitem{odd} N. J. A. Sloane,
+\emph{A001519: $a(n)=3a(n-1)-a(n-2)$ for $n\geq2$, with
+$a(0)=a(1)=1$}, revision \#923,
+October 26, 2026. \url{https://oeis.org/A001519}.
+\bibitem{divisibility} K. Strassburger,
+\emph{A051731: Triangle read by rows: $T(n,k)=1$ if $k$ divides $n$,
+$T(n,k)=0$ otherwise, for $1\leq k\leq n$}, revision \#147,
+October 4, 2026. \url{https://oeis.org/A051731}.
+\bibitem{stein} W. Stein,
+\emph{Elementary Number Theory: Primes, Congruences, and Secrets},
+online text dated January 23, 2017, Theorem 4.1.7 and Corollary 4.2.3,
+pp. 72--74. \url{https://wstein.org/ent/ent.pdf}.
+\end{thebibliography}
+\noindent\small Licensed under
+\href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons
+Attribution 4.0 International (CC BY 4.0)}.
+\end{document}

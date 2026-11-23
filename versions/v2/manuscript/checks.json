@@ -1,0 +1,101 @@
+{
+  "arithmetic": "exact integers",
+  "coverage": "Finite checks supplement the written all-index proofs; limits follow from the proofs, not a finite prefix.",
+  "fibonacci_definition": "F_0=0, F_1=1, F_(n+2)=F_(n+1)+F_n",
+  "generating_function_coefficients": {
+    "matched": 121,
+    "powers": [
+      0,
+      120
+    ]
+  },
+  "identities_and_inequalities": {
+    "checks": [
+      "divisor-sieve values equal independent direct divisor sums",
+      "0 <= a(n)-F_(2n-1) <= F_(2 floor(n/2)) <= F_n",
+      "F_(2n-1)=F_n^2+F_(n-1)^2",
+      "(a(n)-F_(2n-1))*F_n <= F_(2n-1)",
+      "sum_{j=1}^n F_(2j-1)=F_(2n)",
+      "a(n)-F_(2n-1) >= F_(n-1) for even n",
+      "0 <= R(n)-1_(2|n)*F_(n-1) <= F_(2 floor(n/3)) for n>=2",
+      "Mobius inversion for both Fibonacci divisor transforms",
+      "(M^n)_(1,1)=F_(2n-1), M=((1,1),(1,2))"
+    ],
+    "indices": [
+      1,
+      1000
+    ]
+  },
+  "ordinary_transform_logarithmic_coefficients": {
+    "arithmetic": "exact rationals",
+    "powers": [
+      1,
+      120
+    ]
+  },
+  "parity_limit_samples": {
+    "coverage": "Finite illustrations of the two written limiting formulas.",
+    "decimal_precision": 500,
+    "samples": [
+      {
+        "n": 60,
+        "scaled_ratio_error": "2.618208556437",
+        "target": "2.618033988750"
+      },
+      {
+        "n": 61,
+        "scaled_ratio_error": "-4.236350433959",
+        "target": "-4.236067977500"
+      },
+      {
+        "n": 120,
+        "scaled_ratio_error": "2.618034000192",
+        "target": "2.618033988750"
+      },
+      {
+        "n": 121,
+        "scaled_ratio_error": "-4.236067996013",
+        "target": "-4.236067977500"
+      },
+      {
+        "n": 240,
+        "scaled_ratio_error": "2.618033988750",
+        "target": "2.618033988750"
+      },
+      {
+        "n": 241,
+        "scaled_ratio_error": "-4.236067977500",
+        "target": "-4.236067977500"
+      },
+      {
+        "n": 480,
+        "scaled_ratio_error": "2.618033988750",
+        "target": "2.618033988750"
+      },
+      {
+        "n": 481,
+        "scaled_ratio_error": "-4.236067977500",
+        "target": "-4.236067977500"
+      }
+    ]
+  },
+  "prime_congruences": {
+    "identities": [
+      "Bala A130095",
+      "Somos A007435"
+    ],
+    "primes_at_most": 10000,
+    "primes_matched": 1229
+  },
+  "published_terms": {
+    "indices": [
+      1,
+      30
+    ],
+    "matched": 30,
+    "source": "https://oeis.org/A130095/b130095.txt"
+  },
+  "status": "pass",
+  "transform_definition": "a(n)=sum_{d|n} F_(2d-1), positive divisors",
+  "verify_py_sha256": "f5eeac27c2c7cff6adf2a740547532959b8f37e7db81e4ad2d675b6927a39536"
+}

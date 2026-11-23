@@ -1,0 +1,11 @@
+{
+  "schema": "mathesis.materials.v1",
+  "work": "oeis-a130095-ratio-limit",
+  "version": 2,
+  "repository_url": "https://github.com/mathesis-papers/oeis-a130095-ratio-limit",
+  "site_url": "https://papers.trureturing.org/oeis-a130095-ratio-limit/",
+  "doi": null,
+  "reading": {},
+  "slides": [],
+  "visualizations": []
+}
